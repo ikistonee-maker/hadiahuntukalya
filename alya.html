@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hadiah Untuk Alya</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .login-container {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      #message {
+        color: red;
+        text-align: center;
+      }
+      .gift-logo {
+        font-size: 100px;
+        cursor: pointer;
+        text-align: center;
+        margin: 20px 0;
+      }
+      .reward-text {
+        display: none;
+        text-align: center;
+        color: green;
+        font-size: 18px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="text" id="username" placeholder="ID" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+      <p id="message"></p>
+    </div>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+          const message = document.getElementById("message");
+
+          // Simulasi login sederhana (ganti dengan logika nyata)
+          if (username === "14022024" && password === "19112010") {
+            message.style.color = "green";
+            message.textContent = "Login berhasil! Mengalihkan...";
+            // Alihkan ke halaman utama dengan logo hadiah
+            setTimeout(() => {
+              document.body.innerHTML = `
+                        <div style="text-align: center; padding: 50px;">
+                            <h1>Ketuk Untuk Membuka Pesan!</h1>
+                            <div class="gift-logo" id="giftLogo">🎁</div>
+                            <p>Klik logo hadiah untuk membuka!</p>
+                            <div class="reward-text" id="rewardText">
+                                ALYA KENTUT BAUNYA GA HILANG" SAMPE 2 BULAN
+                                // pertanyaannya adalah Kemana pas kejadian setelah kita ribut?
+                                // temen w ngeliat lu keluar bareng temen lu?
+                            </div>
+                        </div>
+                    `;
+              // Tambahkan event listener untuk logo
+              document
+                .getElementById("giftLogo")
+                .addEventListener("click", function () {
+                  document.getElementById("rewardText").style.display = "block";
+                });
+            }, 1000);
+          } else {
+            message.textContent = "ID atau Password salah!";
+          }
+        });
+    </script>
+  </body>
+</html>
